@@ -1,0 +1,601 @@
+Week 1
+
+Software Development Lifecycle
+
+Who is on the software development team and what do they contribute?
+
+Project Manager: Plans, organizes, and ensures project completion.
+
+Software Developers: Write, debug, and maintain the code.
+
+Testers/QA Engineers: Test the software to ensure quality.
+
+UI/UX Designers: Design user interfaces and improve user experiences.
+
+Business Analysts: Gather requirements and translate them into technical specifications.
+
+DevOps Engineers: Manage deployments, CI/CD pipelines, and server infrastructure.
+
+What are the main steps in the software development lifecycle? What is the goal of each one?
+
+Requirements Analysis: Understand what the software needs to do.
+
+Design: Plan the architecture and design components.
+
+Implementation: Write the actual code.
+
+Testing: Verify that the code meets requirements and is bug-free.
+
+Deployment: Release the software to users.
+
+Maintenance: Fix bugs and add enhancements post-release.
+
+Java
+
+What is the structure of a Java class?
+
+Declaration: public class ClassName {}
+
+Variables: Fields to store data.
+
+Methods: Functions that define behavior.
+
+Constructors: Special methods to initialize objects.
+
+Optionally: Nested classes, static blocks, etc.
+
+What are the possible accessibility modifiers and primitive types in Java?
+
+Accessibility Modifiers: public, private, protected, (default).
+
+Primitive Types: byte, short, int, long, float, double, char, boolean.
+
+What is the difference between the equals method and the == operator?
+
+==: Compares memory addresses for reference types and values for primitives.
+
+equals: Compares object content (can be overridden).
+
+What is the difference between reference types and primitive types?
+
+Primitive Types: Store raw values directly in memory.
+
+Reference Types: Store references (pointers) to objects in memory.
+
+How is a constructor different from a method?
+
+Constructor: Initializes an object, has no return type, and is named the same as the class.
+
+Method: Performs operations, has a return type, and can have any name.
+
+Version Control and Git
+
+Why do we use version control? How can we benefit from it?
+
+Benefits: Collaboration, history tracking, branching, merging, conflict resolution, rollback, backup, and deployment automation.
+
+What do the four states in the "git status" report mean?
+
+Untracked: New files not yet added to version control.
+
+Staged: Changes ready to be committed.
+
+Tracked: Files being monitored by Git.
+
+Dirty/Modified: Files with unsaved changes.
+
+What do these git commands mean?
+
+clone: Copy a repository.
+
+pull: Fetch and merge changes from a remote repository.
+
+add: Stage changes.
+
+commit: Save staged changes.
+
+push: Upload local commits to a remote repository.
+
+branch: Create or list branches.
+
+merge: Combine changes from different branches.
+
+status: Show the state of the working directory and staging area.
+
+checkout: Switch branches or restore files.
+
+A conflict is a set of characters you need to delete. Where do these characters come from?
+
+Conflicts arise from overlapping changes during merges and are marked with characters like <<<<<<<, =======, and >>>>>>> in the file.
+
+Week 2
+
+More Java
+
+What does it tell other programmers if you include a getter but not a setter for a variable?
+
+The variable is read-only and should not be modified externally.
+
+Where do the toString and equals methods come from if we didn't write them ourselves?
+
+They are inherited from the Object class.
+
+Can you have more than one constructor?
+
+Yes, through constructor overloading, allowing multiple constructors with different parameter lists.
+
+What is a getter method? When do we need one?
+
+A getter retrieves a private variable's value. Needed when external access is required without direct access.
+
+What is a setter method? When do we need one?
+
+A setter modifies a private variable's value. Needed when controlled external modifications are required.
+
+What is the benefit of making everything as close to private as possible?
+
+Ensures better encapsulation and minimizes unintended interactions.
+
+Why do we consider private variables with public methods to be better encapsulated?
+
+It hides implementation details and allows controlled access via public methods.
+
+Why can we use y in place of a Person object, but not x in place of a Student?
+
+Student is a subclass of Person. A subclass can be treated as its parent type, but the reverse isn’t true.
+
+What does "override" and "shadow" mean?
+
+Override: Replace a parent class method in a subclass.
+
+Shadow: Hide a variable in the parent class by redefining it in the subclass.
+
+What is "the compiler"? What sorts of issues prevent IntelliJ from compiling?
+
+A program that translates source code into bytecode. Issues: syntax errors, missing files, or unresolved dependencies.
+
+What does "the compiler does not keep track of object types, only variable types" mean?
+
+The compiler checks variable declarations, not the runtime object they reference.
+
+Why is it useful to have all classes inherit from the Object class?
+
+Provides common methods like toString, equals, and hashCode to all objects.
+
+How does the memory model diagram show two aliases for the same object?
+
+Multiple references point to the same memory address.
+
+If z.moogah() is not a Person method, where will the compiler check?
+
+In the Student class, the runtime type of z.
+
+Why do we write Javadoc instead of inline comments?
+
+Javadoc is structured, easier to generate documentation from, and provides standardized formatting.
+
+How does inheritance work in Java?
+
+A class can extend another, inheriting its fields and methods. A subclass can also override or add new functionality.
+
+If stu1.getStudentNumber is called, can the compiler find it? Why or why not?
+
+No, because stu1 is declared as Person, which doesn't define getStudentNumber. The compiler only considers the declared type.
+
+Week 3
+
+Even More Java
+
+What are the "Java lookup rules" and how do they work?
+
+Java uses the declared type of a variable to determine what methods or fields can be accessed. During runtime, the actual type of the object determines the behavior of overridden methods.
+
+What is a generic class?
+
+A class that operates on parameters of different types, specified at the time of use, e.g., ArrayList<T>.
+
+What makes a class abstract? A method?
+
+A class is abstract if it has the abstract keyword and cannot be instantiated. A method is abstract if declared with abstract and has no implementation.
+
+What is a Java interface?
+
+A contract that specifies methods a class must implement. Methods are public and abstract by default.
+
+How can we decide whether we should use an interface or an abstract class?
+
+Use interfaces for multiple inheritances of behavior and abstract classes for shared code and inheritance.
+
+What is the Java Collections Framework?
+
+A set of classes and interfaces for working with collections like lists, sets, and maps.
+
+List three classes in the Java Collections Framework.
+
+ArrayList, HashSet, HashMap.
+
+What behaviors do you expect to see in an implementing class of Set, Queue, and List?
+
+Set: Unique elements.
+
+Queue: FIFO behavior.
+
+List: Ordered elements.
+
+Why would we want to write List<String> x = new ArrayList<>(); instead of ArrayList<String> x = new ArrayList<>();?
+
+To decouple the code from the specific implementation, allowing easier refactoring.
+
+When might you want to use List as the type of a variable instead of something more specific?
+
+When the specific implementation is irrelevant, and only List behaviors are needed.
+
+When might you NOT want to use List as the type of a parameter in a method's signature?
+
+When the method relies on behaviors specific to a subclass like LinkedList or ArrayList.
+
+Give an example of how you can bring information from a file into your program and how to write information back to that file.
+
+Read: BufferedReader reader = new BufferedReader(new FileReader("file.txt"));
+
+Write: BufferedWriter writer = new BufferedWriter(new FileWriter("file.txt"));
+
+Week 4
+
+Testing
+
+What are some keywords that we use in JUnit testing framework and what do they mean?
+
+@Test: Marks a method as a test case.
+
+assertEquals: Checks if two values are equal.
+
+assertTrue/assertFalse: Checks boolean conditions.
+
+@BeforeEach/@AfterEach: Runs code before/after each test.
+
+What is the goal of unit testing?
+
+To verify the smallest testable parts of an application work as expected in isolation.
+
+How can you test a private helper method?
+
+Indirectly by testing public methods that use the helper or using reflection (not recommended).
+
+What are assertions? What results can they produce?
+
+Assertions verify assumptions in tests. Results: pass, fail, or throw exceptions.
+
+How can public static variables affect setup and teardown?
+
+They retain values across tests, causing shared state issues.
+
+What are some ways to choose test cases?
+
+Boundary values, edge cases, normal cases, and error conditions.
+
+How many test classes and actual tests do we need?
+
+One test class per class under test and one test per method or behavior.
+
+How do we name, label, and document tests?
+
+Use descriptive names, annotations, and comments to clarify test purpose.
+
+What are some benefits of writing tests before you write the code it will test?
+
+Forces you to think about requirements and edge cases first (Test-Driven Development).
+
+GUIs
+
+What are the names of some classes that represent components that you can put on a JPanel?
+
+JButton, JLabel, JTextField, JCheckBox.
+
+What are the differences between Flow Layout and a Box Layout?
+
+Flow Layout: Arranges components left to right, wrapping if needed.
+
+Box Layout: Arranges components vertically or horizontally.
+
+Describe a login screen and describe how you would create it by putting textboxes and buttons on a JPanel.
+
+Add JTextField for username, JPasswordField for password, and JButton for login.
+
+What is a "listener"? How was it used in the code from the java.swing slides?
+
+A listener is an interface for handling events. Example: ActionListener for button clicks.
+
+Week 5
+
+Software Design Decisions
+
+Give an example of a “design decision” that you might make when developing a class.
+
+Deciding whether to use inheritance or composition to share functionality.
+
+Give an example of a “design decision” that you might make when reading a specification and using it to develop a plan for your program.
+
+Choosing to use an array or a list based on the need for fixed size or dynamic resizing.
+
+SOLID Principles of Design
+
+What is the difference between a rule and a principle? Why do we have principles of software design instead of rules?
+
+A rule must always be followed; a principle is a guideline that applies in most cases to improve design.
+
+For each SOLID principle, state the principle and include a brief description of the example.
+
+Single Responsibility Principle (SRP): A class should only have one reason to change. Example: A class for database operations should not handle UI logic.
+
+Open/Closed Principle (OCP): Software entities should be open for extension but closed for modification. Example: Using interfaces to allow new behaviors without altering existing code.
+
+Liskov Substitution Principle (LSP): Subtypes must be substitutable for their base types. Example: A subclass of a shape should implement the behavior expected of any shape.
+
+Interface Segregation Principle (ISP): Clients should not be forced to depend on interfaces they don’t use. Example: Splitting a large interface into smaller, specific ones.
+
+Dependency Inversion Principle (DIP): Depend on abstractions, not concrete implementations. Example: Relying on an interface for logging rather than a specific logging library.
+
+What does “encapsulation” mean? Which of the SOLID principles are related to encapsulation?
+
+Encapsulation: Restricting access to a class’s internal state and requiring all interactions to be performed through methods. Related principles: SRP and ISP.
+
+What does “High cohesion, loose coupling” mean? Which of the SOLID principles explicitly agree with this statement?
+
+High cohesion: Keeping related functionality within a class. Loose coupling: Minimizing dependencies between classes. Related principles: SRP and DIP.
+
+Describe five features of Java that agree with the SOLID principles.
+
+SRP: Java’s package structure promotes modularity.
+
+OCP: Inheritance and interfaces enable extending functionality without modification.
+
+LSP: Polymorphism ensures subclasses can replace parent classes.
+
+ISP: Multiple interfaces can be implemented by a class.
+
+DIP: Dependency injection frameworks like Spring.
+
+Exceptions
+
+What is an Exception in Java?
+
+An event that disrupts the normal flow of a program.
+
+What is the conceptual difference between a "checked" and "unchecked" Exception?
+
+Checked: Must be declared or handled (e.g., IOException). Unchecked: Occurs at runtime (e.g., NullPointerException).
+
+What is the syntactical (syntax) difference between a "checked" and "unchecked" Exception?
+
+Checked: Requires throws declaration in method signature. Unchecked: Does not.
+
+Why do we leave RuntimeExceptions unchecked?
+
+Because they indicate programming errors that should be fixed, not recovered from.
+
+Why should we not include as many checked Exceptions as possible in our code?
+
+It complicates code and reduces readability.
+
+When should we catch each exception?
+
+Catch checked exceptions when recovery is possible; log unchecked exceptions for debugging.
+
+What is the purpose of a "finally" block?
+
+To execute code (e.g., resource cleanup) regardless of whether an exception was thrown or caught.
+
+
+Week 6
+
+Clean Architecture
+
+What is a Use Case?
+
+A specific way a system fulfills a user’s goal.
+
+For each role in Clean Architecture, describe what it does.
+
+Entity: Business objects encapsulating core rules.
+
+Use Case Interactor: Implements application-specific business rules.
+
+Input Data Object: Encapsulates data sent from controllers.
+
+Input Boundary Interface: Defines methods for the interactor.
+
+Output Data Object: Encapsulates data sent to the presenter.
+
+Output Boundary Interface: Defines methods for presenters.
+
+Data Access Interface: Abstracts database operations.
+
+Data Access Object: Implements data storage/retrieval.
+
+Controller: Directs user input to interactors.
+
+Presenter: Prepares data for the view.
+
+View Model: Encapsulates data for rendering in the view.
+
+View: Displays the interface to the user.
+
+What is the Dependency Rule in Clean Architecture? Which dependencies does it allow?
+
+Rule: Dependencies must point inward toward higher-level policies. Only inner circles can depend on outer ones, not vice versa.
+
+What are the Enterprise Business Rules, Application Business Rules, Interface Adapters, Frameworks, and Drivers?
+
+Enterprise Business Rules: Core logic of the application.
+
+Application Business Rules: Logic specific to a use case.
+
+Interface Adapters: Convert data between layers.
+
+Frameworks and Drivers: External systems and libraries.
+
+How does Clean Architecture follow each SOLID principle?
+
+SRP: Separation of concerns between layers.
+
+OCP: New frameworks or UI elements can be added without altering core rules.
+
+LSP: Entities can be replaced with their subtypes.
+
+ISP: Layers define minimal interfaces for interaction.
+
+DIP: Inner layers depend on abstractions from outer layers.
+
+What is a sequence diagram? What do the symbols in a sequence diagram represent?
+
+A diagram showing object interactions over time. Symbols: lifelines (vertical lines), messages (arrows), and activations (rectangles).
+
+
+Week 7
+
+Testing and Clean Architecture
+
+What is mocking?
+
+Replacing a component with a simulated version for testing.
+
+How is Clean Architecture particularly well-suited for testing using mocking?
+
+Clear boundaries allow layers to be mocked independently.
+
+Other than unit testing, what other kinds of tests did we mention in lecture and what do they test?
+
+Integration tests: Test multiple components together.
+
+System tests: Test the entire system.
+
+Acceptance tests: Validate the system meets user requirements.
+
+Packaging
+
+What is a package?
+
+A namespace organizing related classes and interfaces.
+
+What are at least three benefits of using an organized packaging scheme?
+
+Improves code organization.
+
+Simplifies dependency management.
+
+Enhances modularity and scalability.
+
+Describe each of these possible ways of packaging your Java project:
+
+By Layer: Grouping by function (e.g., controllers, services).
+
+By Feature: Grouping by functionality (e.g., user, product).
+
+Inside/Outside: Separating core logic from external frameworks.
+
+By Component: Modularizing by reusable components.
+
+What is screaming architecture? What are the benefits to packaging by component in a way that "screams"?
+
+An architecture that clearly shows its purpose. Benefits: Easier understanding, navigation, and maintenance.
+
+
+Week 8
+
+What is a design pattern?
+
+A reusable solution to a common problem in software design.
+
+What are the three categories of design patterns we will cover?
+
+Creational, Structural, Behavioral.
+
+For each of the following design patterns, describe the problem it fixes and how the solution works:
+
+Dependency Injection: Reduces dependency on concrete implementations by injecting dependencies.
+
+Builder: Handles complex object creation by providing a step-by-step construction process.
+
+Strategy: Allows the selection of behavior at runtime by encapsulating algorithms.
+
+Observer: Notifies dependent objects of changes in the subject.
+
+Adapter: Enables incompatible interfaces to work together by providing a wrapper.
+
+Façade: Simplifies interaction with complex systems by providing a unified interface.
+
+Give examples of “tangible harms” and “harm to relational equality” in design.
+
+Tangible harm: Accessibility issues excluding disabled users.
+
+Harm to relational equality: Algorithms prioritizing one demographic over others.
+
+Week 9
+
+What are the medical and social models of disability? How are they similar? How are they different?
+
+Medical Model: Focuses on the individual's impairment and aims to "fix" it.
+
+Social Model: Emphasizes societal barriers and aims to remove them.
+
+Similarity: Both acknowledge the existence of impairments.
+
+Difference: The medical model centers on individuals; the social model focuses on society.
+
+What are the Principles of Universal Design?
+
+Equitable Use: Useful for diverse abilities.
+
+Flexibility in Use: Accommodates a wide range of preferences.
+
+Simple and Intuitive Use: Easy to understand.
+
+Perceptible Information: Communicates effectively.
+
+Tolerance for Error: Minimizes hazards.
+
+Low Physical Effort: Efficient and comfortable use.
+
+Size and Space for Approach and Use: Appropriate for all users.
+
+For each of the following design patterns, describe the problem it fixes and how the solution works:
+
+Dependency Injection: Reduces dependency on concrete implementations by injecting dependencies.
+
+Builder: Handles complex object creation by providing a step-by-step construction process.
+
+Strategy: Allows the selection of behavior at runtime by encapsulating algorithms.
+
+Observer: Notifies dependent objects of changes in the subject.
+
+Adapter: Enables incompatible interfaces to work together by providing a wrapper.
+
+Façade: Simplifies interaction with complex systems by providing a unified interface.
+
+Week 10 & 11
+
+Which regular expression symbols did we discuss and what do they mean?
+
+.: Matches any single character.
+
+*: Matches zero or more occurrences.
+
++: Matches one or more occurrences.
+
+?: Matches zero or one occurrence.
+
+[]: Matches any character in the set.
+
+^: Matches the start of a string.
+
+$: Matches the end of a string.
+
+What does a prompt tuner do?
+
+Adjusts and optimizes prompts to improve AI model outputs.
+
+What is a code smell? Include any notes you have on code smells that are relevant to your group project.
+
+A code smell is an indicator of potential problems in code structure or design. Examples: Long methods, large classes, and duplicate code. Relevant: Ensure methods are concise and responsibilities are well-defined.
+
