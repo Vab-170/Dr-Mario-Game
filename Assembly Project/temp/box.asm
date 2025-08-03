@@ -1,7 +1,7 @@
 ################# CSC258 Assembly Final Project ###################
 # This file contains our implementation of Dr Mario.
 #
-# Student 1: Vaibhav Gupta, 1010324711
+# Student 1: Vaibhav Gupta
 #
 # We assert that the code submitted here is entirely our own 
 # creation, and will indicate otherwise when it is not.
